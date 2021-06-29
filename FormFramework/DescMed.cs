@@ -15,10 +15,10 @@ namespace FormFramework
         public string TipoVeiculo { get; set; }
         public string MatCarroceria { get; set; }
         public string CorCarroceria { get; set; }
-        public int QtdRodas { get; set; }
-        public int VoltControle { get; set; }
-        public int VoltMotor { get; set; }
-        public int Valor { get; set; }
+        public string QtdRodas { get; set; }
+        public string VoltControle { get; set; }
+        public string VoltMotor { get; set; }
+        public string Valor { get; set; }
         public string link_video { get; set; }
 
         // Medidas                
@@ -37,7 +37,7 @@ namespace FormFramework
 
 
         public void createDescMed(int idVeiculo, int versao, string tipVeiculo, string matCarr,
-            string corCarr, int qtdR, int volC, int volM, int valor, float diaRodas, float altVeiculo, float altChao,
+            string corCarr, string qtdR, string volC, string volM, string valor, float diaRodas, float altVeiculo, float altChao,
             float larVeiculo, float compVeiculo, float passo, float bitDiant, float bitTras, float pesTotal)
         {
             this.Veiculo = db.Veiculos.Find(idVeiculo);
@@ -67,7 +67,7 @@ namespace FormFramework
         }
 
         public void updateDescMed(int idVeiculo, int versao, string tipVeiculo, string matCarr,
-            string corCarr, int qtdR, int volC, int volM, int valor, float diaRodas, float altVeiculo, float altChao,
+            string corCarr, string qtdR, string volC, string volM, string valor, float diaRodas, float altVeiculo, float altChao,
             float larVeiculo, float compVeiculo, float passo, float bitDiant, float bitTras, float pesTotal)
         {
             var query = (from q in db.DescMeds

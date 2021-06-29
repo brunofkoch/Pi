@@ -102,10 +102,10 @@ namespace FormFramework
                 textBoxTipoVeiculo.Text, 
                 textBoxMatCarroceira.Text, 
                 textBoxCorCarroceria.Text,
-                Int32.Parse(textBoxQtdRodas.Text),
-                Int32.Parse(textBoxVoltControle.Text),
-                Int32.Parse(textBoxVoltMotor.Text),
-                Int32.Parse(textBoxValorVeiculo.Text),           
+                textBoxQtdRodas.Text,
+                textBoxVoltControle.Text,
+                textBoxVoltMotor.Text,
+                textBoxValorVeiculo.Text,           
                 float.Parse(textBoxDiametroRodas.Text),
                 float.Parse(textBoxAltTotalVeiculo.Text),
                 float.Parse(textBoxLargTotalVeiculo.Text),
@@ -134,10 +134,10 @@ namespace FormFramework
                 textBoxTipoVeiculo.Text,
                 textBoxMatCarroceira.Text,
                 textBoxCorCarroceria.Text,
-                Int32.Parse(textBoxQtdRodas.Text),
-                Int32.Parse(textBoxVoltControle.Text),
-                Int32.Parse(textBoxVoltMotor.Text),
-                Int32.Parse(textBoxValorVeiculo.Text),
+                textBoxQtdRodas.Text,
+                textBoxVoltControle.Text,
+                textBoxVoltMotor.Text,
+                textBoxValorVeiculo.Text,
                 float.Parse(textBoxDiametroRodas.Text),
                 float.Parse(textBoxAltTotalVeiculo.Text),
                 float.Parse(textBoxLargTotalVeiculo.Text),
@@ -221,6 +221,9 @@ namespace FormFramework
 
         }
 
-       
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

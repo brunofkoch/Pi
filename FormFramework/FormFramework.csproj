@@ -115,9 +115,13 @@
     <Compile Include="ManterProvas.Designer.cs">
       <DependentUpon>ManterProvas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106271825389_InitialInsert.cs" />
-    <Compile Include="Migrations\202106271825389_InitialInsert.designer.cs">
-      <DependentUpon>202106271825389_InitialInsert.cs</DependentUpon>
+    <Compile Include="Migrations\202106291301511_AlterTables1.cs" />
+    <Compile Include="Migrations\202106291301511_AlterTables1.designer.cs">
+      <DependentUpon>202106291301511_AlterTables1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106291307005_AlterTables2.cs" />
+    <Compile Include="Migrations\202106291307005_AlterTables2.designer.cs">
+      <DependentUpon>202106291307005_AlterTables2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModProva.cs" />
@@ -154,8 +158,11 @@
     <EmbeddedResource Include="ManterProvas.resx">
       <DependentUpon>ManterProvas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106271825389_InitialInsert.resx">
-      <DependentUpon>202106271825389_InitialInsert.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106291301511_AlterTables1.resx">
+      <DependentUpon>202106291301511_AlterTables1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106291307005_AlterTables2.resx">
+      <DependentUpon>202106291307005_AlterTables2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

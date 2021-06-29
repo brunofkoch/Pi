@@ -9,7 +9,7 @@ namespace FormFramework
     class ModProva
     {
         public int ModProvaID { get; set; }
-        public int NumProva { get; set; }
+        public int CodProva { get; set; }
         public string Nome { get; set; }
         public string Infos { get; set; }
 
@@ -27,7 +27,7 @@ namespace FormFramework
 
         public void CreateModProva(int id, string nome, string info)
         {
-            this.NumProva = id;
+            this.CodProva = id;
             this.Nome = nome;
             this.Infos = info;
             db.ModProvas.Add(this);
