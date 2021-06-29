@@ -19,6 +19,8 @@ namespace FormFramework
         public int IDProva3 { get; set; }
         public int IDProva4 { get; set; }
 
+        private MyContext db = new MyContext();
+
         public Leituras()
         {
             InitializeComponent();
@@ -42,7 +44,8 @@ namespace FormFramework
             else
             {
                 labelVVersao.Text = "VEÍCULO OTIMIZADO";
-            }            
+            }   
+                        
         }
 
         private void Leituras_Load(object sender, EventArgs e)
@@ -52,11 +55,18 @@ namespace FormFramework
             labelMod3.Text = "SLALON";
             labelMod4.Text = "RAMPA";
 
+            buttonRem1.Hide();
+            buttonRem2.Hide();
+            buttonRem3.Hide();
+            buttonRem4.Hide();
+
             DescMed descmed = new DescMed();
             int idDM = descmed.getId(this.IDVeiculo, this.IDVersao);            
 
             Leitura vl = new Leitura();
             if(vl.VerificaExistencia(1, idDM)) {
+                buttonSal1.Hide();
+                buttonRem1.Show();
                 var result = vl.returnObeject(1, idDM);
                 textBox1p1.Text = result.L1.ToString();
                 textBox2p1.Text = result.L2.ToString();
@@ -68,6 +78,8 @@ namespace FormFramework
 
             if (vl.VerificaExistencia(2, idDM))
             {
+                buttonSal2.Hide();
+                buttonRem2.Show();
                 var result = vl.returnObeject(2, idDM);
                 textBox1p2.Text = result.L1.ToString();
                 textBox2p2.Text = result.L2.ToString();
@@ -79,6 +91,8 @@ namespace FormFramework
 
             if (vl.VerificaExistencia(3, idDM))
             {
+                buttonSal3.Hide();
+                buttonRem3.Show();
                 var result = vl.returnObeject(3, idDM);
                 textBox1p3.Text = result.L1.ToString();
                 textBox2p3.Text = result.L2.ToString();
@@ -90,6 +104,8 @@ namespace FormFramework
 
             if (vl.VerificaExistencia(4, idDM))
             {
+                buttonSal4.Hide();
+                buttonRem4.Show();
                 var result = vl.returnObeject(4, idDM);
                 textBox1p4.Text = result.L1.ToString();
                 textBox2p4.Text = result.L2.ToString();
@@ -117,6 +133,14 @@ namespace FormFramework
                 float.Parse(textBox3p1.Text),
                 float.Parse(textBox4p1.Text)
                 );
+            if (this.IDVersao == 2)
+            {
+                Resultado res = new Resultado();
+                var melhoria = res.calcProvaVelocidade(this.IDVeiculo);
+                MessageBox.Show(melhoria.ToString(), "Aviso!");
+            }
+            buttonSal1.Hide();
+            buttonRem1.Show();
             MessageBox.Show("Leituras Salvas!", "Aviso!");
 
 
@@ -139,6 +163,8 @@ namespace FormFramework
                 float.Parse(textBox3p2.Text),
                 float.Parse(textBox4p2.Text)
                 );
+            buttonSal2.Hide();
+            buttonRem2.Show();
             MessageBox.Show("Leituras Salvas!", "Aviso!");            
             
         }
@@ -160,6 +186,8 @@ namespace FormFramework
                 float.Parse(textBox3p3.Text),
                 float.Parse(textBox4p3.Text)
                 );
+            buttonSal3.Hide();
+            buttonRem3.Show();
             MessageBox.Show("Leituras Salvas!", "Aviso!");
             
         }
@@ -181,15 +209,13 @@ namespace FormFramework
                 float.Parse(textBox3p4.Text),
                 float.Parse(textBox4p4.Text)
                 );
+            buttonSal4.Hide();
+            buttonRem4.Show();
             MessageBox.Show("Leituras Salvas!", "Aviso!");
             
         }
 
-        private void buttonAtu1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void textBox1p1_TextChanged(object sender, EventArgs e)
         {
             textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox4p1.Text, textBox4p1.Text);
@@ -278,9 +304,7 @@ namespace FormFramework
         {
             textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
-
-     
-
+             
         private void buttonRem1_Click(object sender, EventArgs e)
         {
             Leitura leitura = new Leitura();
@@ -291,9 +315,12 @@ namespace FormFramework
                 textBox2p1.Clear();
                 textBox3p1.Clear();
                 textBox4p1.Clear();
+                buttonSal1.Show();
+                buttonRem1.Hide();
                 MessageBox.Show("Dados removidos!", "Aviso!");
                 return;
             }
+            
             MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
 
         }
@@ -308,9 +335,13 @@ namespace FormFramework
                 textBox2p2.Clear();
                 textBox3p2.Clear();
                 textBox4p2.Clear();
+                buttonSal2.Show();
+                buttonRem2
+                    .Hide();
                 MessageBox.Show("Dados removidos!", "Aviso!");
                 return;
             }
+            
             MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
         }
 
@@ -324,9 +355,12 @@ namespace FormFramework
                 textBox2p3.Clear();
                 textBox3p3.Clear();
                 textBox4p3.Clear();
+                buttonSal3.Show();
+                buttonRem3.Hide();
                 MessageBox.Show("Dados removidos!", "Aviso!");
                 return;
             }
+            
             MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
         }
 
@@ -340,9 +374,12 @@ namespace FormFramework
                 textBox2p4.Clear();
                 textBox3p4.Clear();
                 textBox4p4.Clear();
+                buttonSal4.Show();
+                buttonRem4.Hide();
                 MessageBox.Show("Dados removidos!", "Aviso!");
                 return;
             }
+            
             MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
         }
 

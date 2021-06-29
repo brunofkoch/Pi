@@ -162,7 +162,7 @@ namespace FormFramework
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Leitura 5";
+            this.label6.Text = "Leitura 4";
             // 
             // textBox3p1
             // 
@@ -243,7 +243,6 @@ namespace FormFramework
             this.labelMod1.Size = new System.Drawing.Size(133, 13);
             this.labelMod1.TabIndex = 0;
             this.labelMod1.Text = "PROVA DE VELOCIDADE";
-            
             // 
             // panel2
             // 
