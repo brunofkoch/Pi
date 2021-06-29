@@ -33,7 +33,8 @@ namespace FormFramework
 
 
                 //float melhoria = (((medOtimizado * 100) / medNormal) - 100) * (-1);
-                float melhoria = ((medNormal - medOtimizado) / medNormal) * 100;
+                //float melhoria = ((medNormal - medOtimizado) / medNormal) * 100;
+                float melhoria = (medNormal / medOtimizado) * 1.25F;
 
                 return melhoria;
             }

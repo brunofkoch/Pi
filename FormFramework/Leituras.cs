@@ -383,6 +383,9 @@ namespace FormFramework
             MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
