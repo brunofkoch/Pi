@@ -125,16 +125,9 @@ namespace FormFramework
                     return false;
                 }
                 db.DescMeds.Remove(qDescMed.First());
-            }
-
-
-            
-
-                        
+            }                                    
             db.SaveChanges();
-
             return true;
-
         }
 
 

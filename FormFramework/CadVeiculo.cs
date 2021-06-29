@@ -101,20 +101,20 @@ namespace FormFramework
                 this.VersaoVeiculo,
                 textBoxTipoVeiculo.Text, 
                 textBoxMatCarroceira.Text, 
-                textBoxCorCarroceria.Text, 
-                Int32.Parse(textBoxQtdRodas.Text), 
-                Int32.Parse(textBoxVoltControle.Text), 
-                Int32.Parse(textBoxVoltMotor.Text), 
+                textBoxCorCarroceria.Text,
+                Int32.Parse(textBoxQtdRodas.Text),
+                Int32.Parse(textBoxVoltControle.Text),
+                Int32.Parse(textBoxVoltMotor.Text),
                 Int32.Parse(textBoxValorVeiculo.Text),           
-                Int32.Parse(textBoxDiametroRodas.Text),
-                Int32.Parse(textBoxAltTotalVeiculo.Text),
-                Int32.Parse(textBoxLargTotalVeiculo.Text),
-                Int32.Parse(textBoxAltChao.Text),
-                Int32.Parse(textBoxBitDianteira.Text),
-                Int32.Parse(textBoxBitTraseira.Text),
-                Int32.Parse(textBoxPasso.Text),
-                Int32.Parse(textBoxPesoVeiculo.Text),
-                Int32.Parse(textBoxCompTotalVeiculo.Text)
+                float.Parse(textBoxDiametroRodas.Text),
+                float.Parse(textBoxAltTotalVeiculo.Text),
+                float.Parse(textBoxLargTotalVeiculo.Text),
+                float.Parse(textBoxAltChao.Text),
+                float.Parse(textBoxBitDianteira.Text),
+                float.Parse(textBoxBitTraseira.Text),
+                float.Parse(textBoxPasso.Text),
+                float.Parse(textBoxPesoVeiculo.Text),
+                float.Parse(textBoxCompTotalVeiculo.Text)
                 );
 
             buttonCadastrar.Hide();
@@ -138,15 +138,15 @@ namespace FormFramework
                 Int32.Parse(textBoxVoltControle.Text),
                 Int32.Parse(textBoxVoltMotor.Text),
                 Int32.Parse(textBoxValorVeiculo.Text),
-                Int32.Parse(textBoxDiametroRodas.Text),
-                Int32.Parse(textBoxAltTotalVeiculo.Text),
-                Int32.Parse(textBoxLargTotalVeiculo.Text),
-                Int32.Parse(textBoxAltChao.Text),
-                Int32.Parse(textBoxBitDianteira.Text),
-                Int32.Parse(textBoxBitTraseira.Text),
-                Int32.Parse(textBoxPasso.Text),
-                Int32.Parse(textBoxPesoVeiculo.Text),
-                Int32.Parse(textBoxCompTotalVeiculo.Text)
+                float.Parse(textBoxDiametroRodas.Text),
+                float.Parse(textBoxAltTotalVeiculo.Text),
+                float.Parse(textBoxLargTotalVeiculo.Text),
+                float.Parse(textBoxAltChao.Text),
+                float.Parse(textBoxBitDianteira.Text),
+                float.Parse(textBoxBitTraseira.Text),
+                float.Parse(textBoxPasso.Text),
+                float.Parse(textBoxPesoVeiculo.Text),
+                float.Parse(textBoxCompTotalVeiculo.Text)
                 );
             MessageBox.Show("Informações Atualizadas!", "AVISO!");
         }
