@@ -14,7 +14,10 @@ namespace FormFramework
     {
         public int IDVeiculo { get; set; }
         public int IDVersao { get; set; }
-        
+        public int IDProva1 { get; set; }
+        public int IDProva2 { get; set; }
+        public int IDProva3 { get; set; }
+        public int IDProva4 { get; set; }
 
         public Leituras()
         {
@@ -60,6 +63,7 @@ namespace FormFramework
                 textBox3p1.Text = result.L3.ToString();
                 textBox4p1.Text = result.L4.ToString();
                 textBox5p1.Text = result.Media.ToString();
+                this.IDProva1 = result.LeituraID;
             }
 
             if (vl.VerificaExistencia(2, idDM))
@@ -70,6 +74,7 @@ namespace FormFramework
                 textBox3p2.Text = result.L3.ToString();
                 textBox4p2.Text = result.L4.ToString();
                 textBox5p2.Text = result.Media.ToString();
+                this.IDProva2 = result.LeituraID;
             }
 
             if (vl.VerificaExistencia(3, idDM))
@@ -80,6 +85,7 @@ namespace FormFramework
                 textBox3p3.Text = result.L3.ToString();
                 textBox4p3.Text = result.L4.ToString();
                 textBox5p3.Text = result.Media.ToString();
+                this.IDProva3 = result.LeituraID;
             }
 
             if (vl.VerificaExistencia(4, idDM))
@@ -90,36 +96,48 @@ namespace FormFramework
                 textBox3p4.Text = result.L3.ToString();
                 textBox4p4.Text = result.L4.ToString();
                 textBox5p4.Text = result.Media.ToString();
+                this.IDProva4 = result.LeituraID;
             }
         }
 
         private void buttonSal1_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1p1.Text) || String.IsNullOrEmpty(textBox2p1.Text) || String.IsNullOrEmpty(textBox3p1.Text) || String.IsNullOrEmpty(textBox4p1.Text))            
+            {
+                MessageBox.Show("Preencha todos os campos!", "Aviso!");
+                return;
+            }
             Leitura l = new Leitura();
             l.createLeitura(
                 this.IDVeiculo,
                 this.IDVersao,
                 1,
-                Int32.Parse(textBox1p1.Text),
-                Int32.Parse(textBox2p1.Text),
-                Int32.Parse(textBox3p1.Text),
-                Int32.Parse(textBox4p1.Text)
-                );            
+                float.Parse(textBox1p1.Text),
+                float.Parse(textBox2p1.Text),
+                float.Parse(textBox3p1.Text),
+                float.Parse(textBox4p1.Text)
+                );
             MessageBox.Show("Leituras Salvas!", "Aviso!");
-            
+
+
         }
 
         private void buttonSal2_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1p2.Text) || String.IsNullOrEmpty(textBox2p2.Text) || String.IsNullOrEmpty(textBox3p2.Text) || String.IsNullOrEmpty(textBox4p2.Text))
+            {
+                MessageBox.Show("Preencha todos os campos!", "Aviso!");
+                return;
+            }
             Leitura l = new Leitura();
             l.createLeitura(
                 this.IDVeiculo,
                 this.IDVersao,
                 2,
-                Int32.Parse(textBox1p2.Text),
-                Int32.Parse(textBox2p2.Text),
-                Int32.Parse(textBox3p2.Text),
-                Int32.Parse(textBox4p2.Text)
+                float.Parse(textBox1p2.Text),
+                float.Parse(textBox2p2.Text),
+                float.Parse(textBox3p2.Text),
+                float.Parse(textBox4p2.Text)
                 );
             MessageBox.Show("Leituras Salvas!", "Aviso!");            
             
@@ -127,15 +145,20 @@ namespace FormFramework
 
         private void buttonSal3_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1p3.Text) || String.IsNullOrEmpty(textBox2p3.Text) || String.IsNullOrEmpty(textBox3p3.Text) || String.IsNullOrEmpty(textBox4p3.Text))
+            {
+                MessageBox.Show("Preencha todos os campos!", "Aviso!");
+                return;
+            }
             Leitura l = new Leitura();
             l.createLeitura(
                 this.IDVeiculo,
                 this.IDVersao,
                 3,
-                Int32.Parse(textBox1p3.Text),
-                Int32.Parse(textBox2p3.Text),
-                Int32.Parse(textBox3p3.Text),
-                Int32.Parse(textBox4p3.Text)
+                float.Parse(textBox1p3.Text),
+                float.Parse(textBox2p3.Text),
+                float.Parse(textBox3p3.Text),
+                float.Parse(textBox4p3.Text)
                 );
             MessageBox.Show("Leituras Salvas!", "Aviso!");
             
@@ -143,15 +166,20 @@ namespace FormFramework
 
         private void buttonSal4_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1p4.Text) || String.IsNullOrEmpty(textBox2p4.Text) || String.IsNullOrEmpty(textBox3p4.Text) || String.IsNullOrEmpty(textBox4p4.Text))
+            {
+                MessageBox.Show("Preencha todos os campos!", "Aviso!");
+                return;
+            }
             Leitura l = new Leitura();
             l.createLeitura(
                 this.IDVeiculo,
                 this.IDVersao,
                 4,
-                Int32.Parse(textBox1p4.Text),
-                Int32.Parse(textBox2p4.Text),
-                Int32.Parse(textBox3p4.Text),
-                Int32.Parse(textBox4p4.Text)
+                float.Parse(textBox1p4.Text),
+                float.Parse(textBox2p4.Text),
+                float.Parse(textBox3p4.Text),
+                float.Parse(textBox4p4.Text)
                 );
             MessageBox.Show("Leituras Salvas!", "Aviso!");
             
@@ -251,9 +279,73 @@ namespace FormFramework
             textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
 
-        private void labelMod1_Click(object sender, EventArgs e)
+     
+
+        private void buttonRem1_Click(object sender, EventArgs e)
         {
+            Leitura leitura = new Leitura();
+            if (leitura.removeLeitura(this.IDProva1))
+            {
+                this.IDProva1 = 0;
+                textBox1p1.Clear();
+                textBox2p1.Clear();
+                textBox3p1.Clear();
+                textBox4p1.Clear();
+                MessageBox.Show("Dados removidos!", "Aviso!");
+                return;
+            }
+            MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
 
         }
+
+        private void buttonRem2_Click(object sender, EventArgs e)
+        {
+            Leitura leitura = new Leitura();
+            if (leitura.removeLeitura(this.IDProva2))
+            {
+                this.IDProva2 = 0;
+                textBox1p2.Clear();
+                textBox2p2.Clear();
+                textBox3p2.Clear();
+                textBox4p2.Clear();
+                MessageBox.Show("Dados removidos!", "Aviso!");
+                return;
+            }
+            MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
+        }
+
+        private void buttonRem3_Click(object sender, EventArgs e)
+        {
+            Leitura leitura = new Leitura();
+            if (leitura.removeLeitura(this.IDProva3))
+            {
+                this.IDProva3 = 0;
+                textBox1p3.Clear();
+                textBox2p3.Clear();
+                textBox3p3.Clear();
+                textBox4p3.Clear();
+                MessageBox.Show("Dados removidos!", "Aviso!");
+                return;
+            }
+            MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
+        }
+
+        private void buttonRem4_Click(object sender, EventArgs e)
+        {
+            Leitura leitura = new Leitura();
+            if (leitura.removeLeitura(this.IDProva4))
+            {
+                this.IDProva4 = 0;
+                textBox1p4.Clear();
+                textBox2p4.Clear();
+                textBox3p4.Clear();
+                textBox4p4.Clear();
+                MessageBox.Show("Dados removidos!", "Aviso!");
+                return;
+            }
+            MessageBox.Show("Não foi possivel remover. Feche e abra a janela!", "Aviso!");
+        }
+
+        
     }
 }

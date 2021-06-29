@@ -40,6 +40,17 @@ namespace FormFramework
             db.SaveChanges();
         }
 
+        public bool removeLeitura(int id)
+        {
+            if(id != 0)
+            {
+                var result = (from q in db.Leituras where q.LeituraID == id select q).First();
+                db.Leituras.Remove(result);
+                db.SaveChanges();
+                return true;               
+            }
+            return false;
+        }
 
         public bool VerificaExistencia(int NumProva, int idDescMed)
         {
