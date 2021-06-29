@@ -154,7 +154,11 @@ namespace FormFramework
         private void buttonRemover_Click(object sender, EventArgs e)
         {
             DescMed descMed = new DescMed();
-            descMed.removeDecMed(this.IdVeiculo, this.VersaoVeiculo);
+            if (!descMed.removeDecMed(this.IdVeiculo, this.VersaoVeiculo))
+            {
+                MessageBox.Show("Exitem leituras cadastradas!", "AVISO!");
+                return;
+            }           
 
             textBoxTipoVeiculo.Clear();
             textBoxMatCarroceira.Clear();

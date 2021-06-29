@@ -105,36 +105,41 @@ namespace FormFramework
         }
 
 
-        public void removeDecMed(int idVeiculo, int versao)
+        public bool removeDecMed(int idVeiculo, int versao)
         {
-            var query1 = (from q1 in db.DescMeds
+            var qDescMed = (from q1 in db.DescMeds
                          where q1.Veiculo.VeiculoID == idVeiculo
                          &&
                          q1.Versao == versao
-                         select q1).First().DescMedID;
+                         select q1);
 
-            var query2 = (from q2 in db.Leituras
-                         where q2.DescMedVeiculo.DescMedID == query1
-                         select q2).First();
-
-            if (!query2.Equals(""))
+            
+            if(qDescMed.Count() != 0)
             {
-                Leitura leit = db.Leituras.Find(query2.LeituraID);
-                db.Leituras.Remove(leit);
+                var descmed = qDescMed.First().DescMedID;
+                var Leitura_ID = (from q2 in db.Leituras
+                              where q2.DescMedVeiculo.DescMedID == descmed
+                              select q2);
+                if(Leitura_ID.Count() != 0)
+                {
+                    return false;
+                }
+                db.DescMeds.Remove(qDescMed.First());
             }
-            if (query1.Equals(""))
-            {
-                DescMed result = db.DescMeds.Find(query1);
-                db.DescMeds.Remove(result);
-            }            
+
+
+            
+
+                        
             db.SaveChanges();
+
+            return true;
 
         }
 
 
         public int getId(int IDV, int VV)
-        {
-            
+        {            
             var query = from q in db.DescMeds
                          where q.Veiculo.VeiculoID == IDV
                          &&
