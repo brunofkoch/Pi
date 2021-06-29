@@ -215,41 +215,41 @@ namespace FormFramework
             
         }
 
-       
+        public string fCalcularMedia(string media_1, string media_2, string media_3, string media_4)
+        {
+            var total = 0.00;
+            if (media_1 != "" && media_2 != "" && media_3 != "" && media_4 != "")
+            {
+                total = 10 / ( (Convert.ToDouble(media_1) + Convert.ToDouble(media_2) + Convert.ToDouble(media_3) + Convert.ToDouble(media_4)) / 4 );
+            }
+            return Convert.ToString(total);
+        }
+
         private void textBox1p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox4p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox2p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox4p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox3p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox4p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox4p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox4p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox1p2_TextChanged(object sender, EventArgs e)
         {
             textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);
         }
-        public string fCalcularMedia(string media_1, string media_2, string media_3, string media_4)
-        {
-            var total = 0.00;
-            if (media_1 != "" && media_2 != "" && media_3 != "" && media_4 != "")
-            {
-                total = (Convert.ToDouble(media_1) + Convert.ToDouble(media_2) + Convert.ToDouble(media_3) + Convert.ToDouble(media_4)) / 4;
-            }
-            return Convert.ToString(total);
-        }
-
+        
         private void textBox2p2_TextChanged(object sender, EventArgs e)
         {
             textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);

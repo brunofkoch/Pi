@@ -70,12 +70,6 @@
     <Compile Include="AreaEquipe.designer.cs">
       <DependentUpon>AreaEquipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="AreaLeituras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AreaLeituras.Designer.cs">
-      <DependentUpon>AreaLeituras.cs</DependentUpon>
-    </Compile>
     <Compile Include="CadAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +130,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AreaEquipe.resx">
       <DependentUpon>AreaEquipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AreaLeituras.resx">
-      <DependentUpon>AreaLeituras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadAluno.resx">
       <DependentUpon>CadAluno.cs</DependentUpon>

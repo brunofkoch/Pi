@@ -34,7 +34,10 @@ namespace FormFramework
             this.L4 = l4;
             this.DescMedVeiculo = query.First();
             this.NumProva = idp;
-            this.Media = (l1 + l2 + l3 + l4) / 4;
+
+            // Gera a média das leituras e converte em m/s
+            // O numeral 10 é referente a distancia percorrida = '10 metros'            
+            this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
 
             db.Leituras.Add(this);
             db.SaveChanges();
