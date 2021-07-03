@@ -109,9 +109,9 @@
     <Compile Include="ManterProvas.Designer.cs">
       <DependentUpon>ManterProvas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107012214055_Teste1.cs" />
-    <Compile Include="Migrations\202107012214055_Teste1.designer.cs">
-      <DependentUpon>202107012214055_Teste1.cs</DependentUpon>
+    <Compile Include="Migrations\202107031326525_update1.cs" />
+    <Compile Include="Migrations\202107031326525_update1.designer.cs">
+      <DependentUpon>202107031326525_update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModProva.cs" />
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="ManterProvas.resx">
       <DependentUpon>ManterProvas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107012214055_Teste1.resx">
-      <DependentUpon>202107012214055_Teste1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107031326525_update1.resx">
+      <DependentUpon>202107031326525_update1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

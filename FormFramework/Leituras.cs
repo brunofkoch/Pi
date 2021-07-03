@@ -81,11 +81,7 @@ namespace FormFramework
                 buttonSal2.Hide();
                 buttonRem2.Show();
                 var result = vl.returnObeject(2, idDM);
-                textBox1p2.Text = result.L1.ToString();
-                //textBox2p2.Text = result.L2.ToString();
-                //textBox3p2.Text = result.L3.ToString();
-                //textBox4p2.Text = result.L4.ToString();
-                //textBox5p2.Text = result.Media.ToString();
+                textBox1p2.Text = result.L1.ToString();                
                 this.IDProva2 = result.LeituraID;
             }
 
@@ -146,9 +142,10 @@ namespace FormFramework
 
         }
 
-       /* private void buttonSal2_Click(object sender, EventArgs e)
+        //Prova Tração
+        private void buttonSal2_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1p2.Text) || String.IsNullOrEmpty(textBox2p2.Text) || String.IsNullOrEmpty(textBox3p2.Text) || String.IsNullOrEmpty(textBox4p2.Text))
+            if (String.IsNullOrEmpty(textBox1p2.Text))
             {
                 MessageBox.Show("Preencha todos os campos!", "Aviso!");
                 return;
@@ -159,15 +156,13 @@ namespace FormFramework
                 this.IDVersao,
                 2,
                 float.Parse(textBox1p2.Text),
-                //float.Parse(textBox2p2.Text),
-                //float.Parse(textBox3p2.Text),
-                //float.Parse(textBox4p2.Text)
+                0,0,0
                 );
             buttonSal2.Hide();
             buttonRem2.Show();
-            MessageBox.Show("Leituras Salvas!", "Aviso!");            
-            
-        }*/
+            MessageBox.Show("Leituras Salvas!", "Aviso!");
+
+        }
 
         private void buttonSal3_Click(object sender, EventArgs e)
         {
@@ -415,5 +410,7 @@ namespace FormFramework
         {
 
         }
+
+      
     }
 }

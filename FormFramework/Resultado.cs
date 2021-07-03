@@ -24,6 +24,7 @@ namespace FormFramework
 
             if (getNormal_id.Count() != 0 && getOtimizado_id.Count() != 0)
             {
+                // Localiza as leituras atraves dos ID encontrados na query acima
                 Leitura Normal = db.Leituras.Find(getNormal_id.First().LeituraID);
                 Leitura Otimizado = db.Leituras.Find(getOtimizado_id.First().LeituraID);
 
@@ -32,14 +33,14 @@ namespace FormFramework
                 float medOtimizado = Otimizado.Media;
 
 
-                //float melhoria = (((medOtimizado * 100) / medNormal) - 100) * (-1);
+                float melhoria = ((medOtimizado / medNormal) - 1) * 100;
                 //float melhoria = ((medNormal - medOtimizado) / medNormal) * 100;
-                float melhoria = (medNormal / medOtimizado) * 1.25F;
+                //float melhoria = (medNormal / medOtimizado) * 1.25F;
 
                 return melhoria;
             }
 
-            // Localiza as leituras atraves dos ID encontrados na query acima
+           
             return 0;
         }
 

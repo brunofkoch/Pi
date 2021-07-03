@@ -27,21 +27,63 @@ namespace FormFramework
                          where q.Veiculo.VeiculoID == idv
                          &&
                          q.Versao == vv
-                         select q;
-            this.L1 = l1;
-            this.L2 = l2;
-            this.L3 = l3;
-            this.L4 = l4;
-            this.DescMedVeiculo = query.First();
-            this.NumProva = idp;
+                         select q;            
+            
 
-            // Gera a média das leituras e converte em m/s
-            // O numeral 10 é referente a distancia percorrida = '10 metros'            
-            this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
+            switch (idp)
+            {
+                case 1:
+                    // Média para Prova de Velocidade
+                    // Gera a média das leituras e converte em "Metros por Segundo"
+                    // O numeral 10 é referente a distancia percorrida = '10 metros'            
+                    this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
+                    this.L1 = l1;
+                    this.L2 = l2;
+                    this.L3 = l3;
+                    this.L4 = l4;
+                    this.DescMedVeiculo = query.First();
+                    this.NumProva = idp;
+                    break;
+                case 2:
+                    // Média para Prova Tração
+                    this.DescMedVeiculo = query.First();
+                    this.NumProva = idp;
+                    this.L1 = l1;  // ganbiarra kk'                  
+                    this.L2 = l2;   // ganbiarra kk'
+                    this.L3 = l3;   // ganbiarra kk'
+                    this.L4 = l4;   // ganbiarra kk'
+                    this.Media = l1;
+                    break;
+                case 3:
+                    // Média para Prova Slalon
+                    this.L1 = l1;
+                    this.L2 = l2;
+                    this.L3 = l3;
+                    this.L4 = l4;
+                    this.Media = ( (l1 + l2 + l3 + l4) / 4 );
+                    this.DescMedVeiculo = query.First();
+                    this.NumProva = idp;
+                    break;
+                case 4:
+                    // Média para Prova Rampa
+                    this.L1 = l1;
+                    this.L2 = l2;
+                    this.L3 = l3;
+                    this.L4 = l4;
+                    this.Media = ((l1 + l2 + l3 + l4) / 4);
+                    this.DescMedVeiculo = query.First();
+                    this.NumProva = idp;
+                    break;
+                default:
+                    break;
+            }           
 
             db.Leituras.Add(this);
             db.SaveChanges();
         }
+
+
+
 
         public bool removeLeitura(int id)
         {
