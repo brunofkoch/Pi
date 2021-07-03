@@ -4,8 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # My custons
-/FormFramework/Migrations
-/FormFramework/App.config
+FormFramework/Migrations
+FormFramework/App.config
 
 # User-specific files
 *.rsuser
