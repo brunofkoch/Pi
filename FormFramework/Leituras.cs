@@ -82,10 +82,10 @@ namespace FormFramework
                 buttonRem2.Show();
                 var result = vl.returnObeject(2, idDM);
                 textBox1p2.Text = result.L1.ToString();
-                textBox2p2.Text = result.L2.ToString();
-                textBox3p2.Text = result.L3.ToString();
-                textBox4p2.Text = result.L4.ToString();
-                textBox5p2.Text = result.Media.ToString();
+                //textBox2p2.Text = result.L2.ToString();
+                //textBox3p2.Text = result.L3.ToString();
+                //textBox4p2.Text = result.L4.ToString();
+                //textBox5p2.Text = result.Media.ToString();
                 this.IDProva2 = result.LeituraID;
             }
 
@@ -146,7 +146,7 @@ namespace FormFramework
 
         }
 
-        private void buttonSal2_Click(object sender, EventArgs e)
+       /* private void buttonSal2_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox1p2.Text) || String.IsNullOrEmpty(textBox2p2.Text) || String.IsNullOrEmpty(textBox3p2.Text) || String.IsNullOrEmpty(textBox4p2.Text))
             {
@@ -159,15 +159,15 @@ namespace FormFramework
                 this.IDVersao,
                 2,
                 float.Parse(textBox1p2.Text),
-                float.Parse(textBox2p2.Text),
-                float.Parse(textBox3p2.Text),
-                float.Parse(textBox4p2.Text)
+                //float.Parse(textBox2p2.Text),
+                //float.Parse(textBox3p2.Text),
+                //float.Parse(textBox4p2.Text)
                 );
             buttonSal2.Hide();
             buttonRem2.Show();
             MessageBox.Show("Leituras Salvas!", "Aviso!");            
             
-        }
+        }*/
 
         private void buttonSal3_Click(object sender, EventArgs e)
         {
@@ -215,7 +215,7 @@ namespace FormFramework
             
         }
 
-        public string fCalcularMedia(string media_1, string media_2, string media_3, string media_4)
+        public string fCalcularMediap1(string media_1, string media_2, string media_3, string media_4)
         {
             var total = 0.00;
             if (media_1 != "" && media_2 != "" && media_3 != "" && media_4 != "")
@@ -224,85 +224,76 @@ namespace FormFramework
             }
             return Convert.ToString(total);
         }
+        public string fCalcularMediap2(string media_1, string media_2, string media_3, string media_4)
+        {
+            var total = 0.00;
+            if (media_1 != "" && media_2 != "" && media_3 != "" && media_4 != "")
+            {
+                total = ((Convert.ToDouble(media_1) + Convert.ToDouble(media_2) + Convert.ToDouble(media_3) + Convert.ToDouble(media_4)) / 4);
+            }
+            return Convert.ToString(total);
+        }
 
         private void textBox1p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMediap1(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox2p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMediap1(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox3p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMediap1(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
         private void textBox4p1_TextChanged(object sender, EventArgs e)
         {
-            textBox5p1.Text = fCalcularMedia(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
+            textBox5p1.Text = fCalcularMediap1(textBox1p1.Text, textBox2p1.Text, textBox3p1.Text, textBox4p1.Text);
         }
 
-        private void textBox1p2_TextChanged(object sender, EventArgs e)
-        {
-            textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);
-        }
-        
-        private void textBox2p2_TextChanged(object sender, EventArgs e)
-        {
-            textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);
-        }
 
-        private void textBox3p2_TextChanged(object sender, EventArgs e)
-        {
-            textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);
-        }
-
-        private void textBox4p2_TextChanged(object sender, EventArgs e)
-        {
-            textBox5p2.Text = fCalcularMedia(textBox1p2.Text, textBox2p2.Text, textBox3p2.Text, textBox4p2.Text);
-        }
 
         private void textBox1p3_TextChanged(object sender, EventArgs e)
         {
-            textBox5p3.Text = fCalcularMedia(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
+            textBox5p3.Text = fCalcularMediap2(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
         }
 
         private void textBox2p3_TextChanged(object sender, EventArgs e)
         {
-            textBox5p3.Text = fCalcularMedia(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
+            textBox5p3.Text = fCalcularMediap2(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
         }
 
         private void textBox3p3_TextChanged(object sender, EventArgs e)
         {
-            textBox5p3.Text = fCalcularMedia(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
+            textBox5p3.Text = fCalcularMediap2(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
         }
 
         private void textBox4p3_TextChanged(object sender, EventArgs e)
         {
-            textBox5p3.Text = fCalcularMedia(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
+            textBox5p3.Text = fCalcularMediap2(textBox1p3.Text, textBox2p3.Text, textBox3p3.Text, textBox4p3.Text);
         }
 
         private void textBox1p4_TextChanged(object sender, EventArgs e)
         {
-            textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
+            textBox5p4.Text = fCalcularMediap2(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
 
         private void textBox2p4_TextChanged(object sender, EventArgs e)
         {
-            textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
+            textBox5p4.Text = fCalcularMediap2(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
 
         private void textBox3p4_TextChanged(object sender, EventArgs e)
         {
-            textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
+            textBox5p4.Text = fCalcularMediap2(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
 
         private void textBox4p4_TextChanged(object sender, EventArgs e)
         {
-            textBox5p4.Text = fCalcularMedia(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
+            textBox5p4.Text = fCalcularMediap2(textBox1p4.Text, textBox2p4.Text, textBox3p4.Text, textBox4p4.Text);
         }
              
         private void buttonRem1_Click(object sender, EventArgs e)
@@ -332,9 +323,6 @@ namespace FormFramework
             {
                 this.IDProva2 = 0;
                 textBox1p2.Clear();
-                textBox2p2.Clear();
-                textBox3p2.Clear();
-                textBox4p2.Clear();
                 buttonSal2.Show();
                 buttonRem2
                     .Hide();
@@ -384,6 +372,46 @@ namespace FormFramework
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5p1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1p2_TextChanged_1(object sender, EventArgs e)
         {
 
         }
