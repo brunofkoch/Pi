@@ -15,6 +15,23 @@ namespace FormFramework
 
         MyContext db = new MyContext();
 
+        public Equipe()
+        {
+           
+        }
+
+        public void createAdmin()
+        {
+            var q = from admin in db.Equipes
+                    where admin.Nome == "admin" && admin.Tipo_User == 1
+                    select admin;
+
+            if (q.Count() == 0)
+            {
+                createEquipe("admin", "Admin123", 1);
+            }
+        }
+
         public void createEquipe(string nome, string senha, int tipoUser)
         {
             this.Nome = nome.ToUpper();
