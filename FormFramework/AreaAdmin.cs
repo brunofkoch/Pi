@@ -23,6 +23,13 @@ namespace FormFramework
 
         }
 
+        private void AreaAdmin_Close(object sender, EventArgs e)
+        {
+            // Chama o Form login que esta rodando em background 
+            Form lg = Application.OpenForms["Login"];
+            lg.Show();
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ManterProvas mProvas = new ManterProvas();

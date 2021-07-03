@@ -107,6 +107,7 @@ namespace FormFramework
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AreaAdmin";
             this.Load += new System.EventHandler(this.AreaAdmin_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AreaAdmin_Close);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -39,7 +39,7 @@ namespace FormFramework
 
 
 
-            var ide = equipe.verificaEquipe(Int32.Parse(textBoxIdEquipe.Text), textBoxSenha.Text);
+            var ide = equipe.verificaEquipe(textBoxIdEquipe.Text, textBoxSenha.Text);
             if (ide != 0)
             {
                 // Realiza o login do usuário e verifica o tipo de usuario ele é.
@@ -89,5 +89,7 @@ namespace FormFramework
         {
             textBoxSenha.PasswordChar = '*';
         }
+
+       
     }
 }

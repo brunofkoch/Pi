@@ -53,8 +53,13 @@ namespace FormFramework
         public int verificaEquipe(string nome, string senha)
         {
             // Essa função é utilizada para quando a Equipe é criada ela retorna o ID de criação da Equipe
-            var query = (from eq in db.Equipes where eq.Nome == nome && eq.Senha == senha select new { ID = eq.EquipeID }).First();
-            return query.ID;
+            var query = (from eq in db.Equipes where eq.Nome == nome && eq.Senha == senha select new { ID = eq.EquipeID });
+            if (query.Count() != 0)
+            {
+                return query.First().ID;
+            }
+            return 0;
+
         }
 
         public int verificaEquipe(int id, string senha)
