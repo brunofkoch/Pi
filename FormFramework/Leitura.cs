@@ -46,7 +46,7 @@ namespace FormFramework
                     this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
                     this.CodVeiculo = veiculo_id.First();
                     this.NumProva = idp;
-                    new Resultado().calcProvaVelocidade(veiculo_id.First().VeiculoID);
+                    new Resultado().calcProvaVelocidade(veiculo_id.First().VeiculoID, ide);
                     break;
                 case 2:
                     // Média para Prova Tração

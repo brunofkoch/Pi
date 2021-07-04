@@ -15,6 +15,6 @@ namespace FormFramework
         public DbSet<Leitura> Leituras { get; set; }
         public DbSet<Prova> ModProvas { get; set; }
         public DbSet<Resultado> Resultados { get; set; }
-        public DbSet<Ranking> Rankings { get; set; }
+        
     }
 }
