@@ -23,13 +23,13 @@ namespace FormFramework
         public bool createLeitura(int ide, int vv, int idp, float l1, float l2, float l3, float l4)
         {            
             // Retorna o id da descriçaõ medida da versão do veiculo
-            var query = from q in db.Veiculos
+            var veiculo_id = from q in db.Veiculos
                          where q.CodEquipe.EquipeID == ide
                          &&
                          q.Versao == vv
                          select q;
 
-            if (query.Count() == 0)
+            if (veiculo_id.Count() == 0)
             {
                 return false;
             } 
@@ -44,12 +44,13 @@ namespace FormFramework
                     this.L3 = l3;
                     this.L4 = l4;
                     this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
-                    this.CodVeiculo = query.First();
-                    this.NumProva = idp;                    
+                    this.CodVeiculo = veiculo_id.First();
+                    this.NumProva = idp;
+                    new Resultado().calcProvaVelocidade(veiculo_id.First().VeiculoID);
                     break;
                 case 2:
                     // Média para Prova Tração
-                    this.CodVeiculo = query.First();
+                    this.CodVeiculo = veiculo_id.First();
                     this.NumProva = idp;
                     this.L1 = l1;  // ganbiarra kk'                  
                     this.L2 = l2;   // ganbiarra kk'
@@ -64,7 +65,7 @@ namespace FormFramework
                     this.L3 = l3;
                     this.L4 = l4;
                     this.Media = ( (l1 + l2 + l3 + l4) / 4 );
-                    this.CodVeiculo = query.First();
+                    this.CodVeiculo = veiculo_id.First();
                     this.NumProva = idp;
                     break;
                 case 4:
@@ -74,7 +75,7 @@ namespace FormFramework
                     this.L3 = l3;
                     this.L4 = l4;
                     this.Media = ((l1 + l2 + l3 + l4) / 4);
-                    this.CodVeiculo = query.First();
+                    this.CodVeiculo = veiculo_id.First();
                     this.NumProva = idp;
                     break;
                 default:
@@ -100,8 +101,8 @@ namespace FormFramework
 
         public bool VerificaExistencia(int NumProva, int idVeiculo)
         {
-            var query = from q in db.Leituras where q.NumProva == NumProva && q.CodVeiculo.VeiculoID == idVeiculo select q;
-            if (query.Count() != 0)
+            var veiculo_id = from q in db.Leituras where q.NumProva == NumProva && q.CodVeiculo.VeiculoID == idVeiculo select q;
+            if (veiculo_id.Count() != 0)
                 return true;
 
             return false;
@@ -110,10 +111,10 @@ namespace FormFramework
 
         public Leitura returnObeject(int numprova, int idVeiculo)
         {
-            var query = from q in db.Leituras where q.NumProva == numprova && q.CodVeiculo.VeiculoID == idVeiculo select q;
-            if (query.Count() == 0)
+            var veiculo_id = from q in db.Leituras where q.NumProva == numprova && q.CodVeiculo.VeiculoID == idVeiculo select q;
+            if (veiculo_id.Count() == 0)
                 return null;
-            return query.First();
+            return veiculo_id.First();
         }
     }
 }

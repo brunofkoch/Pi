@@ -37,8 +37,6 @@ namespace FormFramework
         {
             Equipe equipe = new Equipe();
 
-
-
             var ide = equipe.verificaEquipe(textBoxIdEquipe.Text, textBoxSenha.Text);
             if (ide != 0)
             {
@@ -50,9 +48,9 @@ namespace FormFramework
                 if (tipoUser.Tipo_User == 1)
                 {
                     MessageBox.Show("You are User Admin");
-                    //AreaAdmin aAdmin = new AreaAdmin();
-                    //aAdmin.Show();
-                    new ShowResultados().Show();
+                    AreaAdmin aAdmin = new AreaAdmin();
+                    aAdmin.Show();
+
                 }
                 else if (tipoUser.Tipo_User == 2)
                 {

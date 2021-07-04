@@ -12,7 +12,7 @@ namespace FormFramework
         public int Colocacao { get; set; }
         public int EtapaCompeticao { get; set; }
         public Resultado Resultados { get; set; }
-        public ModProva ModProvas { get; set; }
+        public Prova ModProvas { get; set; }
         
     }
 }
