@@ -50,8 +50,9 @@ namespace FormFramework
                 if (tipoUser.Tipo_User == 1)
                 {
                     MessageBox.Show("You are User Admin");
-                    AreaAdmin aAdmin = new AreaAdmin();
-                    aAdmin.Show();
+                    //AreaAdmin aAdmin = new AreaAdmin();
+                    //aAdmin.Show();
+                    new ShowResultados().Show();
                 }
                 else if (tipoUser.Tipo_User == 2)
                 {
@@ -59,6 +60,7 @@ namespace FormFramework
                     // atribuido o ID da Equipe em seu atributo 'IdEquipe'                
                     AreaEquipe aEquipe = new AreaEquipe(ide);
                     aEquipe.Show();
+
                 }
                 // Esconde o form login deixando ele em execução e também limpa os campos de entrada do form
                 this.Hide();

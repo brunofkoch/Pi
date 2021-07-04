@@ -12,8 +12,7 @@ namespace FormFramework
 {
     public partial class CadVeiculo : Form
     {
-        private int VersaoVeiculo;
-        private int IdVeiculo;
+        private int VersaoVeiculo;        
         private int IdEquipe;
         private MyContext db = new MyContext();
 
@@ -22,19 +21,18 @@ namespace FormFramework
             InitializeComponent();
         }
 
-        public CadVeiculo(int IDE, int IDV, int VV)
+        public CadVeiculo(int IDE,int VV)
         {
             InitializeComponent();
-            this.IdEquipe = IDE;
-            this.IdVeiculo = IDV;
+            this.IdEquipe = IDE;            
             this.VersaoVeiculo = VV;            
         }
 
 
         private void CadVeiculo_Load(object sender, EventArgs e)
         {            
-            var query = from q in db.DescMeds 
-                        where q.Veiculo.VeiculoID == this.IdVeiculo 
+            var query = from q in db.Veiculos 
+                        where q.CodEquipe.EquipeID == this.IdEquipe 
                         && 
                         q.Versao == this.VersaoVeiculo 
                         select q;
@@ -67,7 +65,9 @@ namespace FormFramework
                 textBoxBitTraseira.Text = result.BitolaTraseira.ToString();
                 textBoxPasso.Text = result.Passo.ToString();
                 textBoxPesoVeiculo.Text = result.PessoTotalVeiculo.ToString();
-                textBoxCompTotalVeiculo.Text = result.ComprimentoVeiculo.ToString();                
+                textBoxCompTotalVeiculo.Text = result.ComprimentoVeiculo.ToString();
+                textBoxLinkFoto.Text = result.Link_Foto.ToString();
+                textBoxLinkVideo.Text = result.Link_Video.ToString();
             }
 
         }
@@ -77,6 +77,9 @@ namespace FormFramework
             Form areaEquipe = Application.OpenForms["AreaEquipe"];
             areaEquipe.Show();            
         }
+
+
+
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
             // Validação dos inputs para verificar se todos os campos estão preenchidos
@@ -87,17 +90,17 @@ namespace FormFramework
                 return;
             }
             if (String.IsNullOrEmpty(textBoxDiametroRodas.Text) || String.IsNullOrEmpty(textBoxAltTotalVeiculo.Text) || String.IsNullOrEmpty(textBoxLargTotalVeiculo.Text) || String.IsNullOrEmpty(textBoxBitDianteira.Text) ||
-                String.IsNullOrEmpty(textBoxBitTraseira.Text) || String.IsNullOrEmpty(textBoxPasso.Text) || String.IsNullOrEmpty(textBoxPesoVeiculo.Text) || String.IsNullOrEmpty(textBoxCompTotalVeiculo.Text) || String.IsNullOrEmpty(textBoxAltChao.Text))
+               String.IsNullOrEmpty(textBoxLinkVideo.Text) || String.IsNullOrEmpty(textBoxLinkFoto.Text) || String.IsNullOrEmpty(textBoxBitTraseira.Text) || String.IsNullOrEmpty(textBoxPasso.Text) || String.IsNullOrEmpty(textBoxPesoVeiculo.Text) || String.IsNullOrEmpty(textBoxCompTotalVeiculo.Text) || String.IsNullOrEmpty(textBoxAltChao.Text))
             {
                 MessageBox.Show("Preencher todos os campos", "AVISO!");
                 return;
             }
 
 
-            DescMed descmed = new DescMed();
+            Veiculo veiculo = new Veiculo();
             // Chama a função de criar descrição do veículo
-            descmed.createDescMed(
-                this.IdVeiculo, 
+            veiculo.createVeiculo(
+                this.IdEquipe, 
                 this.VersaoVeiculo,
                 textBoxTipoVeiculo.Text, 
                 textBoxMatCarroceira.Text, 
@@ -105,7 +108,9 @@ namespace FormFramework
                 textBoxQtdRodas.Text,
                 textBoxVoltControle.Text,
                 textBoxVoltMotor.Text,
-                textBoxValorVeiculo.Text,           
+                textBoxValorVeiculo.Text,
+                textBoxLinkFoto.Text,
+                textBoxLinkVideo.Text,
                 float.Parse(textBoxDiametroRodas.Text),
                 float.Parse(textBoxAltTotalVeiculo.Text),
                 float.Parse(textBoxLargTotalVeiculo.Text),
@@ -126,10 +131,10 @@ namespace FormFramework
 
         private void buttonAtualiza_Click(object sender, EventArgs e)
         {
-            DescMed descmed = new DescMed();
+            Veiculo veiculo = new Veiculo();
             // Chama a função de criar descrição do veículo
-            descmed.updateDescMed(
-                this.IdVeiculo,
+            veiculo.updateVeiculo(
+                this.IdEquipe,
                 this.VersaoVeiculo,
                 textBoxTipoVeiculo.Text,
                 textBoxMatCarroceira.Text,
@@ -138,6 +143,8 @@ namespace FormFramework
                 textBoxVoltControle.Text,
                 textBoxVoltMotor.Text,
                 textBoxValorVeiculo.Text,
+                textBoxLinkFoto.Text,
+                textBoxLinkVideo.Text,
                 float.Parse(textBoxDiametroRodas.Text),
                 float.Parse(textBoxAltTotalVeiculo.Text),
                 float.Parse(textBoxLargTotalVeiculo.Text),
@@ -153,8 +160,8 @@ namespace FormFramework
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
-            DescMed descMed = new DescMed();
-            if (!descMed.removeDecMed(this.IdVeiculo, this.VersaoVeiculo))
+            Veiculo veiculo = new Veiculo();
+            if (!veiculo.removeDecMed(this.IdEquipe, this.VersaoVeiculo))
             {
                 MessageBox.Show("Exitem leituras cadastradas!", "AVISO!");
                 return;
@@ -176,6 +183,8 @@ namespace FormFramework
             textBoxPasso.Clear();
             textBoxPesoVeiculo.Clear();
             textBoxCompTotalVeiculo.Clear();
+            textBoxLinkFoto.Clear();
+            textBoxLinkVideo.Clear();
             
             buttonAtualiza.Hide();
             buttonRemover.Hide();
@@ -186,7 +195,7 @@ namespace FormFramework
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Leituras leituras = new Leituras(this.IdVeiculo, this.VersaoVeiculo);
+            CadLeituras leituras = new CadLeituras(this.IdEquipe, this.VersaoVeiculo);
             leituras.MdiParent = Application.OpenForms["AreaEquipe"];
             leituras.Show();
         }

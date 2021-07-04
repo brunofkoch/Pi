@@ -11,8 +11,7 @@ namespace FormFramework
     {
         public DbSet<Equipe> Equipes { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Veiculo> Veiculos { get; set; }
-        public DbSet<DescMed> DescMeds { get; set; }
+        public DbSet<Veiculo> Veiculos { get; set; }        
         public DbSet<Leitura> Leituras { get; set; }
         public DbSet<ModProva> ModProvas { get; set; }
         public DbSet<Resultado> Resultados { get; set; }

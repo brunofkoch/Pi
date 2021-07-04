@@ -12,8 +12,7 @@ namespace FormFramework
 {
     public partial class AreaEquipe : Form
     {
-        private int IdEquipe;
-        private int IdVeiculo;
+        private int IdEquipe;        
         private MyContext db = new MyContext();
 
 
@@ -25,13 +24,7 @@ namespace FormFramework
         public AreaEquipe(int IDE)
         {
             InitializeComponent();
-            this.IdEquipe = IDE;
-
-            // Quando é criado uma equipe automaticamente é criado o identificador do veiculo
-            // Nesse campo é passdo o identificador da equipe para encontra o seu respectivo veiculo
-            Veiculo veiculo = new Veiculo();
-            int IDV = veiculo.verificaVeiculo(IDE);
-            this.IdVeiculo = IDV;
+            this.IdEquipe = IDE;           
         }
 
         private void AreaEquipe_Load(object sender, EventArgs e)
@@ -62,38 +55,33 @@ namespace FormFramework
        
         private void informaçõesNormalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Retorna o ID do veiculo que referece a Equipe
-            Veiculo veiculo = new Veiculo();
-            int IDV = veiculo.verificaVeiculo(this.IdEquipe);
+            
             // Chama a janela para cadastrar as informações do veiculo passando dois parametros:
             // O Id do veiculo e o numero que referece a sua versão, nessa caso a versão normal.
-            CadVeiculo cVeiculo = new CadVeiculo(this.IdEquipe, IDV, 1); // o numero '1' é referente ao veiculo na versao normal
+            CadVeiculo cVeiculo = new CadVeiculo(this.IdEquipe, 1); // o numero '1' é referente ao veiculo na versao normal
             cVeiculo.MdiParent = this;
             cVeiculo.Show();
         }
                
         private void informaçõesOtimizadaToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            // Retorna o ID do veiculo que referece a Equipe
-            Veiculo veiculo = new Veiculo();
-            int IDV = veiculo.verificaVeiculo(this.IdEquipe);
+        {           
             // Chama a janela para cadastrar as informações do veiculo passando dois parametros:
             // O Id do veiculo e o numero que referece a sua versão, nessa caso a versão otimizada.
-            CadVeiculo cVeiculo = new CadVeiculo(this.IdEquipe, IDV, 2);// o numero '2' é referente ao veiculo na versao otmizada
+            CadVeiculo cVeiculo = new CadVeiculo(this.IdEquipe, 2);// o numero '2' é referente ao veiculo na versao otmizada
             cVeiculo.MdiParent = this;
             cVeiculo.Show();
         }
 
         private void leiturasNormalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Leituras leituras = new Leituras(this.IdVeiculo, 1);
+            CadLeituras leituras = new CadLeituras(this.IdEquipe, 1);
             leituras.MdiParent = this;
             leituras.Show();
         }
 
         private void leiturasOtimizadaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Leituras leituras = new Leituras(this.IdVeiculo, 2);
+            CadLeituras leituras = new CadLeituras(this.IdEquipe, 2);
             leituras.MdiParent = this;
             leituras.Show();
         }

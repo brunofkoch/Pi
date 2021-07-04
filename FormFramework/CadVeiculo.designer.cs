@@ -80,7 +80,7 @@ namespace FormFramework
             this.textBoxBitDianteira = new System.Windows.Forms.TextBox();
             this.textBoxAltTotalVeiculo = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBoxLinkFoto = new System.Windows.Forms.TextBox();
             this.textBoxLinkVideo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -566,7 +566,7 @@ namespace FormFramework
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.textBox17);
+            this.panel3.Controls.Add(this.textBoxLinkFoto);
             this.panel3.Controls.Add(this.textBoxLinkVideo);
             this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.label21);
@@ -576,12 +576,12 @@ namespace FormFramework
             this.panel3.Size = new System.Drawing.Size(325, 149);
             this.panel3.TabIndex = 5;
             // 
-            // textBox17
+            // textBoxLinkFoto
             // 
-            this.textBox17.Location = new System.Drawing.Point(106, 87);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(206, 20);
-            this.textBox17.TabIndex = 17;
+            this.textBoxLinkFoto.Location = new System.Drawing.Point(106, 87);
+            this.textBoxLinkFoto.Name = "textBoxLinkFoto";
+            this.textBoxLinkFoto.Size = new System.Drawing.Size(206, 20);
+            this.textBoxLinkFoto.TabIndex = 17;
             // 
             // textBoxLinkVideo
             // 
@@ -725,7 +725,7 @@ namespace FormFramework
         private System.Windows.Forms.TextBox textBoxAltTotalVeiculo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBoxLinkFoto;
         private System.Windows.Forms.TextBox textBoxLinkVideo;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;

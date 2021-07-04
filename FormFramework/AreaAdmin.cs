@@ -30,11 +30,6 @@ namespace FormFramework
             lg.Show();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ManterProvas mProvas = new ManterProvas();
-            mProvas.MdiParent = this;
-            mProvas.Show();
-        }
+        
     }
 }

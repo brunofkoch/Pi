@@ -32,20 +32,17 @@ namespace FormFramework
             if (textBoxSenha.Text != textBoxConfSenha.Text)
             {
                 MessageBox.Show("As senhas não conferem!", "AVISO!");
+                return;
             }
-            else
-            {
-                // O numero '2' representa o tipo do usuário.
-                // Sendo que 1 representa o ADMIN e 2 representa USUÁRIO COMUM
-                equipe.createEquipe(textBoxNomeEquipe.Text, textBoxConfSenha.Text, 2);
-                int id = equipe.verificaEquipe(textBoxNomeEquipe.Text, textBoxConfSenha.Text);
+            
+            // O numero '2' representa o tipo do usuário.
+            // Sendo que 1 representa o ADMIN e 2 representa USUÁRIO COMUM
+            equipe.createEquipe(textBoxNomeEquipe.Text, textBoxConfSenha.Text, 2);
+            int id = equipe.verificaEquipe(textBoxNomeEquipe.Text, textBoxConfSenha.Text);                              
 
-                Veiculo veiculo = new Veiculo();
-                veiculo.createVeiculo(id);
-
-                MessageBox.Show($"Identificador de Login: {id} ");
-                this.Close();
-            }
+            //MessageBox.Show($"Identificador de Login: {id} ");
+            this.Close();
+            
 
             textBoxSenha.Clear();
             textBoxConfSenha.Clear();

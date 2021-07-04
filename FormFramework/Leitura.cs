@@ -14,39 +14,42 @@ namespace FormFramework
         public float L3 { get; set; }
         public float L4 { get; set; }
         public float Media { get; set; }
-        public DescMed DescMedVeiculo { get; set; }
+        public Veiculo CodVeiculo { get; set; }
         public int NumProva { get; set; }
 
         private MyContext db = new MyContext();
 
 
-        public void createLeitura(int idv, int vv, int idp, float l1, float l2, float l3, float l4)
+        public bool createLeitura(int ide, int vv, int idp, float l1, float l2, float l3, float l4)
         {            
             // Retorna o id da descriçaõ medida da versão do veiculo
-            var query = from q in db.DescMeds
-                         where q.Veiculo.VeiculoID == idv
+            var query = from q in db.Veiculos
+                         where q.CodEquipe.EquipeID == ide
                          &&
                          q.Versao == vv
-                         select q;            
-            
+                         select q;
 
+            if (query.Count() == 0)
+            {
+                return false;
+            } 
             switch (idp)
             {
                 case 1:
                     // Média para Prova de Velocidade
                     // Gera a média das leituras e converte em "Metros por Segundo"
-                    // O numeral 10 é referente a distancia percorrida = '10 metros'            
-                    this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
+                    // O numeral 10 é referente a distancia percorrida = '10 metros'                       
                     this.L1 = l1;
                     this.L2 = l2;
                     this.L3 = l3;
                     this.L4 = l4;
-                    this.DescMedVeiculo = query.First();
-                    this.NumProva = idp;
+                    this.Media = 10 / ((l1 + l2 + l3 + l4) / 4);
+                    this.CodVeiculo = query.First();
+                    this.NumProva = idp;                    
                     break;
                 case 2:
                     // Média para Prova Tração
-                    this.DescMedVeiculo = query.First();
+                    this.CodVeiculo = query.First();
                     this.NumProva = idp;
                     this.L1 = l1;  // ganbiarra kk'                  
                     this.L2 = l2;   // ganbiarra kk'
@@ -61,7 +64,7 @@ namespace FormFramework
                     this.L3 = l3;
                     this.L4 = l4;
                     this.Media = ( (l1 + l2 + l3 + l4) / 4 );
-                    this.DescMedVeiculo = query.First();
+                    this.CodVeiculo = query.First();
                     this.NumProva = idp;
                     break;
                 case 4:
@@ -71,18 +74,16 @@ namespace FormFramework
                     this.L3 = l3;
                     this.L4 = l4;
                     this.Media = ((l1 + l2 + l3 + l4) / 4);
-                    this.DescMedVeiculo = query.First();
+                    this.CodVeiculo = query.First();
                     this.NumProva = idp;
                     break;
                 default:
                     break;
-            }           
-
+            }            
             db.Leituras.Add(this);
             db.SaveChanges();
+            return true;
         }
-
-
 
 
         public bool removeLeitura(int id)
@@ -97,9 +98,9 @@ namespace FormFramework
             return false;
         }
 
-        public bool VerificaExistencia(int NumProva, int idDescMed)
+        public bool VerificaExistencia(int NumProva, int idVeiculo)
         {
-            var query = from q in db.Leituras where q.NumProva == NumProva && q.DescMedVeiculo.DescMedID == idDescMed select q;
+            var query = from q in db.Leituras where q.NumProva == NumProva && q.CodVeiculo.VeiculoID == idVeiculo select q;
             if (query.Count() != 0)
                 return true;
 
@@ -107,9 +108,9 @@ namespace FormFramework
         }
 
 
-        public Leitura returnObeject(int numprova, int idDescMed)
+        public Leitura returnObeject(int numprova, int idVeiculo)
         {
-            var query = from q in db.Leituras where q.NumProva == numprova && q.DescMedVeiculo.DescMedID == idDescMed select q;
+            var query = from q in db.Leituras where q.NumProva == numprova && q.CodVeiculo.VeiculoID == idVeiculo select q;
             if (query.Count() == 0)
                 return null;
             return query.First();
