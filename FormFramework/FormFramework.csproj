@@ -91,9 +91,6 @@
     <Compile Include="CadLeituras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadLeituras.designer.cs">
-      <DependentUpon>CadLeituras.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202107061701167_Initial.cs" />
     <Compile Include="Migrations\202107061701167_Initial.designer.cs">
       <DependentUpon>202107061701167_Initial.cs</DependentUpon>
@@ -127,9 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadVeiculo.resx">
       <DependentUpon>CadVeiculo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CadLeituras.resx">
-      <DependentUpon>CadLeituras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
