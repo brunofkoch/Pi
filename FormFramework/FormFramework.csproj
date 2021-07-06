@@ -88,27 +88,27 @@
     <Compile Include="CadVeiculo.designer.cs">
       <DependentUpon>CadVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107041804075_v1.cs" />
-    <Compile Include="Migrations\202107041804075_v1.designer.cs">
-      <DependentUpon>202107041804075_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Veiculo.cs" />
-    <Compile Include="Equipe.cs" />
-    <Compile Include="Leitura.cs" />
     <Compile Include="CadLeituras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadLeituras.Designer.cs">
+    <Compile Include="CadLeituras.designer.cs">
       <DependentUpon>CadLeituras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107061701167_Initial.cs" />
+    <Compile Include="Migrations\202107061701167_Initial.designer.cs">
+      <DependentUpon>202107061701167_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Prova.cs" />
+    <Compile Include="Veiculo.cs" />
+    <Compile Include="Equipe.cs" />
+    <Compile Include="Leitura.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prova.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,8 +134,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107041804075_v1.resx">
-      <DependentUpon>202107041804075_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107061701167_Initial.resx">
+      <DependentUpon>202107061701167_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
